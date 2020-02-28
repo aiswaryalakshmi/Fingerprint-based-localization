@@ -20,6 +20,7 @@
 
 ## Part 2: Localization
 1. Find Euclidean distance for each row in test dataframe with the entire training dataframe to find the k-Nearest Neighbours for each data point in the test dataframe, using the formula:<par>
+        ![distance = \sqrt{\sum_{i=1}^{M} {(RSS_{A,i}-RSS_{B,i})}^2}](https://latex.codecogs.com/svg.latex?x%3D%5Cfrac%7B-b%5Cpm%5Csqrt%7Bb%5E2-4ac%7D%7D%7B2a%7D)
     ```math
         distance = \sqrt{\sum_{i=1}^{M} {(RSS_{A,i}-RSS_{B,i})}^2}
     
