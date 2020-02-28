@@ -1,80 +1,53 @@
-\documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,xspace,epsfig}
-
-\textwidth 6.5in \textheight 9.05in \oddsidemargin 0.0in
-\evensidemargin 0.0in \topmargin -0.55in
-\addtolength{\textwidth}{2.5mm} \addtolength{\columnsep}{2mm}
-
-%\long\def\soln#1{#1}
-\long\def\soln#1{}
-
-\title{CSE570: Wireless And Mobile Networks - Spring 2020}
-\author{Aiswarya Lakshmi Renganathan $($SBU ID: 112688118$)$\thanks{%
-Department of Computer Science, Stony Brook University, Stony Brook,
-NY 11794, USA, {\tt arenganathan@cs.stonybrook.edu}. } }
-\usepackage{tabto}
-\usepackage{amsmath}
-\usepackage{breqn}
-\begin{document}
-\maketitle
-\section*{Homework 2}
-\textbf{Methodology}
-\par \textbf{Part 1: Initial Data Processing}
-\begin{enumerate}
-    \item Import the training and testing csv files in Google Colaboratory
+# Fingerprint Based Localization
+## Part 1: Initial Data Processing
+1. Import the training and testing csv files in Google Colaboratory
         \begin{figure}[h]%*}[htp]
             \centering
             \includegraphics[width=\textwidth,height=40mm,keepaspectratio]{import_csv.png}
         \end{figure}%*}
-    \item Get all unique AP addresses in the dataset and store them as a list.
+2. Get all unique AP addresses in the dataset and store them as a list.
         \begin{figure}[h]%*}[htp]
             \centering
             \includegraphics[width=\textwidth,height=40mm,keepaspectratio]{get_all_ap.png}
         \end{figure}%*}
-    \item Impute the dataset by assigning -120 dBm for the missing signal strengths by the following method:
-    \begin{enumerate}
-        \item Create a new dataframe with the column names initialized with the AP addresses derived in the previous step.
-        \item Copy all the existing signal strength values for the APs already present in the input dataframe for each row, and then assign -120 to all the remaining cells.
-    \end{enumerate}
+3. Impute the dataset by assigning -120 dBm for the missing signal strengths by the following method:
+    1. Create a new dataframe with the column names initialized with the AP addresses derived in the previous step.
+    2. Copy all the existing signal strength values for the APs already present in the input dataframe for each row, and then assign -120 to all the remaining cells.
         \begin{figure}[h]%*}[htp]
             \centering
             \includegraphics[width=\textwidth,height=70mm,keepaspectratio]{impute.png}
         \end{figure}%*}
-\end{enumerate}
-\par \textbf{Part 2: Localization}
-\begin{enumerate}
-    \item Find Euclidean distance for each row in test dataframe with the entire training dataframe to find the k-Nearest Neighbours for each data point in the test dataframe, using the formula:
+
+## Part 2: Localization
+1. Find Euclidean distance for each row in test dataframe with the entire training dataframe to find the k-Nearest Neighbours for each data point in the test dataframe, using the formula:
     \[distance = \sqrt{\sum_{i=1}^{M} {(RSS_{A,i}-RSS_{B,i})}^2}\]
         \begin{figure}[h]%*}[htp]
             \centering
             \includegraphics[width=\textwidth,height=17mm,keepaspectratio]{euclidean.png}
         \end{figure}%*}
-    \item Filter the k-Nearest data points based on the Euclidean distance calculated as above.
+2. Filter the k-Nearest data points based on the Euclidean distance calculated as above.
         \begin{figure}[h]%*}[htp]
             \centering
             \includegraphics[width=\textwidth,height=6mm,keepaspectratio]{knn.png}
         \end{figure}%*}
-    \item Estimate the latitude and longitude values of the test data points by taking the average of the latitudes and longitudes of k-Nearest Neighbours.
+3. Estimate the latitude and longitude values of the test data points by taking the average of the latitudes and longitudes of k-Nearest Neighbours.
         \begin{figure}[h]%*}[htp]
             \centering
             \includegraphics[width=\textwidth,height=40mm,keepaspectratio]{estimate.png}
         \end{figure}%*}
-    \item Calculate localization errors by using the formula:
+4. Calculate localization errors by using the formula:
         \[dlon = lon2 - lon1 \]
         \[dlat = lat2 - lat1 \]
 \[a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 \]
 \[c = 2 * atan2( sqrt(a), sqrt(1-a) ) \]
 \[d = R * c  \] where R (radius of the Earth) = 3961 (in miles) \& 6373 (in km)
-\end{enumerate}
-\textbf{Result}
-\begin{enumerate}
-\item In miles:
-\begin{enumerate} 
-\item When k = 3 Nearest Neighbours are considered:
-    \begin{enumerate} 
-\item Median error: 0.05412130633831588
-\item 67 percentile error: 0.07257826825888594
-\item 90 percentile error: 0.1349382128040697
+
+## Result
+1. In miles:
+    1. When k = 3 Nearest Neighbours are considered
+        1. Median error: 0.05412130633831588
+        2. 67 percentile error: 0.07257826825888594
+        3. 90 percentile error: 0.1349382128040697
     \end{enumerate}
 \item When k = 4 Nearest Neighbours are considered:
     \begin{enumerate} 
