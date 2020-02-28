@@ -48,41 +48,24 @@
         1. Median error: 0.05412130633831588
         2. 67 percentile error: 0.07257826825888594
         3. 90 percentile error: 0.1349382128040697
-    \end{enumerate}
-\item When k = 4 Nearest Neighbours are considered:
-    \begin{enumerate} 
-\item Median error: 0.06651225517358414
-\item 67 percentile error: 0.08843083221850023
-\item 90 percentile error: 0.15952889777751433
-    \end{enumerate}
-\item When k = 5 Nearest Neighbours are considered:
-\begin{enumerate} 
-\item Median error: 0.07828930635986234
-\item 67 percentile error: 0.10608027759309598
-\item 90 percentile error: 0.17633717991532963
-     \end{enumerate}
-\end{enumerate}
-\item In km:
-\begin{enumerate} 
-\item When k = 3 Nearest Neighbours are considered:
-    \begin{enumerate} 
-\item Median error: 0.08707777967535651
-\item 67 percentile error: 0.11677387114715478
-\item 90 percentile error: 0.21710710179256154
-    \end{enumerate}
-\item When k = 4 Nearest Neighbours are considered:
-    \begin{enumerate} 
-\item Median error: 0.10701403742015948
-\item 67 percentile error: 0.14227965001981874
-\item 90 percentile error: 0.2566719680727339
-    \end{enumerate}
-\item When k = 5 Nearest Neighbours are considered:
-\begin{enumerate} 
-\item  Median error: 0.1259625724391322
-\item 67 percentile error: 0.17067649813198704
-\item 90 percentile error: 0.28371543741489413
-     \end{enumerate}
-\end{enumerate}
-\end{enumerate}
-
-\end{document}
+    2. When k = 4 Nearest Neighbours are considered:
+        1. Median error: 0.06651225517358414
+        2. 67 percentile error: 0.08843083221850023
+        3. 90 percentile error: 0.15952889777751433
+    3. When k = 5 Nearest Neighbours are considered:
+        1. Median error: 0.07828930635986234
+        2. 67 percentile error: 0.10608027759309598
+        3. 90 percentile error: 0.17633717991532963
+2. In km:
+    1. When k = 3 Nearest Neighbours are considered:
+        1. Median error: 0.08707777967535651
+        2. 67 percentile error: 0.11677387114715478
+        3. 90 percentile error: 0.21710710179256154
+    2. When k = 4 Nearest Neighbours are considered:
+        1. Median error: 0.10701403742015948
+        2. 67 percentile error: 0.14227965001981874
+        3. 90 percentile error: 0.2566719680727339
+    3. When k = 5 Nearest Neighbours are considered:
+        1. Median error: 0.1259625724391322
+        2. 67 percentile error: 0.17067649813198704
+        3. 90 percentile error: 0.28371543741489413
